@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hub ATI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Inter"', 'sans-serif'] },
+          colors: {
+            brand: { 50: '#eff6ff', 100: '#dbeafe', 300: '#93c5fd', 500: '#3b82f6', 600: '#2563eb', 700: '#1d4ed8', 900: '#1e3a8a', 950: '#172554' },
+            ink: { 50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1', 500: '#64748b', 600: '#475569', 700: '#334155', 800: '#1e293b', 900: '#0f172a' }
+          }
+        }
+      }
+    }
+  </script>
+  <script>
+    // Controle do Dark Mode
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+      document.documentElement.classList.add('dark')
+    } else {
+      document.documentElement.classList.remove('dark')
+    }
+    function toggleTheme() {
+      document.documentElement.classList.toggle('dark');
+      localStorage.theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+    }
+  </script>
+</head>
+
+<body
+  class="bg-ink-50 dark:bg-ink-900 text-ink-900 dark:text-ink-50 font-sans antialiased min-h-screen flex flex-col transition-colors duration-300">
+
+  <!-- Botão Dark Mode no topo -->
+  <div class="max-w-3xl mx-auto px-6 pt-6 flex justify-end w-full">
+    <button onclick="toggleTheme()"
+      class="p-2.5 rounded-lg bg-ink-200 dark:bg-ink-800 text-ink-600 dark:text-ink-300 hover:bg-brand-100 dark:hover:bg-brand-900 transition"
+      title="Alternar Tema">
+      <svg class="w-5 h-5 hidden dark:block text-brand-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+        </path>
+      </svg>
+      <svg class="w-5 h-5 block dark:hidden text-brand-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+      </svg>
+    </button>
+  </div>
+
+  <header class="max-w-3xl mx-auto px-6 pt-8 pb-12 text-center">
+    <div
+      class="inline-flex items-center gap-2 bg-brand-100 dark:bg-brand-900/50 text-brand-700 dark:text-brand-300 px-4 py-1.5 rounded-full text-xs font-semibold mb-6 tracking-wide uppercase">
+      <span class="w-2 h-2 rounded-full bg-brand-600 dark:bg-brand-400 animate-pulse"></span> Hub de ferramentas para
+      ATIs
+    </div>
+    <h1 class="font-extrabold text-4xl md:text-5xl tracking-tight text-ink-900 dark:text-white mb-4">
+      ATIs
+    </h1>
+    <p class="text-lg text-ink-500 dark:text-ink-300 max-w-xl mx-auto">
+      Recursos independentes, painéis e ferramentas criadas para ajudar os gestores ATIs do setor público federal.
+    </p>
+  </header>
+
+  <main class="max-w-3xl mx-auto px-6 w-full flex-grow flex flex-col gap-4 pb-20">
+    <!-- Card Observatório -->
+    <a href="https://observatorio-ati.streamlit.app/" target="_blank" rel="noopener"
+      class="group bg-white dark:bg-ink-800 border border-ink-200 dark:border-ink-700 rounded-xl p-5 md:p-6 flex items-center gap-6 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-lg transition-all">
+      <div
+        class="w-14 h-14 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl flex-shrink-0 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+        📊</div>
+      <div class="flex-grow">
+        <h2 class="text-lg font-bold text-ink-900 dark:text-white mb-1">Observatório ATI</h2>
+        <p class="text-sm text-ink-500 dark:text-ink-400">Dashboard interativo com indicadores, distribuição e dados
+          estratégicos da carreira ATI.</p>
+      </div>
+      <div class="text-brand-600 dark:text-brand-400 font-medium group-hover:translate-x-1 transition-transform">→</div>
+    </a>
+
+    <!-- Card MovATI -->
+    <a href="https://govtic.github.io/MovATI/" target="_blank" rel="noopener"
+      class="group bg-white dark:bg-ink-800 border border-ink-200 dark:border-ink-700 rounded-xl p-5 md:p-6 flex items-center gap-6 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-lg transition-all">
+      <div
+        class="w-14 h-14 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl flex-shrink-0 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+        🚀</div>
+      <div class="flex-grow">
+        <h2 class="text-lg font-bold text-ink-900 dark:text-white mb-1">MovATI</h2>
+        <p class="text-sm text-ink-500 dark:text-ink-400">Portal de mobilidade e banco de talentos para facilitar a
+          conexão dos ATIs.</p>
+      </div>
+      <div class="text-brand-600 dark:text-brand-400 font-medium group-hover:translate-x-1 transition-transform">→</div>
+    </a>
+
+    <!-- Card Bot Telegram -->
+    <a href="https://t.me/vagasatibot" target="_blank" rel="noopener"
+      class="group bg-white dark:bg-ink-800 border border-ink-200 dark:border-ink-700 rounded-xl p-5 md:p-6 flex items-center gap-6 hover:border-brand-500 dark:hover:border-brand-500 hover:shadow-lg transition-all">
+      <div
+        class="w-14 h-14 rounded-lg bg-brand-50 dark:bg-brand-900/30 text-brand-600 dark:text-brand-400 flex items-center justify-center text-2xl flex-shrink-0 group-hover:bg-brand-600 group-hover:text-white transition-colors">
+        🤖</div>
+      <div class="flex-grow">
+        <h2 class="text-lg font-bold text-ink-900 dark:text-white mb-1">Bot de Avisos ATI</h2>
+        <p class="text-sm text-ink-500 dark:text-ink-400">Notificações no Telegram sobre novas vagas, oportunidades e
+          processos seletivos no SIGEPE.</p>
+      </div>
+      <div class="text-brand-600 dark:text-brand-400 font-medium group-hover:translate-x-1 transition-transform">→</div>
+    </a>
+  </main>
+
+  <footer
+    class="text-center py-8 text-sm text-ink-500 dark:text-ink-400 border-t border-ink-200 dark:border-ink-800 bg-white dark:bg-ink-900 mt-auto transition-colors">
+    <p class="mb-2">
+      Projeto criado para ajudar colegas da carreira ATI. Estas ferramentas nasceram da
+      necessidade do dia a dia dos ATIs — sem vínculo institucional, só vontade de ajudar a comunidade.
+    </p>
+    <p>
+      Projeto independente. Feito por
+      <a href="https://diegogyn.github.io/" target="_blank" rel="noopener"
+        class="text-brand-600 dark:text-brand-400 hover:underline">🌐 Diego Martins</a>
+    </p>
+  </footer>
+
+</body>
+
+</html>
